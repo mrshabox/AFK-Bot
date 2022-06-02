@@ -1,12 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiAFKBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiAFKBot/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import time
 
 from pyrogram import filters
@@ -21,5 +12,5 @@ async def on_start(_, message: Message):
     bot_uptime = int(time.time() - boot)
     Uptime = get_readable_time(bot_uptime)
     await message.reply_text(
-        f"{botname} is alive and working good.\n\nUptime : {Uptime}"
+        f"{botname} đang hoạt động rất tốt.\n\nUptime : {Uptime}"
     )
