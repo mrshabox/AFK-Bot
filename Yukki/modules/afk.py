@@ -1,13 +1,3 @@
-#
-# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
-#
-# This file is part of < https://github.com/TeamYukki/YukkiAFKBot > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TeamYukki/YukkiAFKBot/blob/master/LICENSE >
-#
-# All rights reserved.
-#
-
 import time
 
 from pyrogram import filters
@@ -34,39 +24,39 @@ async def active_afk(_, message: Message):
             seenago = get_readable_time((int(time.time() - timeafk)))
             if afktype == "text":
                 return await message.reply_text(
-                    f"**{message.from_user.first_name}** is back online and was away for {seenago}",
+                    f"**{message.from_user.first_name}** đã online trở lại và đã offline được {seenago}",
                     disable_web_page_preview=True,
                 )
             if afktype == "text_reason":
                 return await message.reply_text(
-                    f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nReason: `{reasonafk}`",
+                    f"**{message.from_user.first_name}** đã online trở lại và đã offline được {seenago}\n\nLý do: `{reasonafk}`",
                     disable_web_page_preview=True,
                 )
             if afktype == "animation":
                 if str(reasonafk) == "None":
                     return await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
+                        caption=f"**{message.from_user.first_name}** đã online trở lại và đã offline được {seenago}",
                     )
                 else:
                     return await message.reply_animation(
                         data,
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nReason: `{reasonafk}",
+                        caption=f"**{message.from_user.first_name}** đã online trở lại và đã offline được {seenago}\n\nLý do: `{reasonafk}",
                     )
             if afktype == "photo":
                 if str(reasonafk) == "None":
                     return await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}",
+                        caption=f"**{message.from_user.first_name}** đã online trở lại và đã offline được {seenago}",
                     )
                 else:
                     return await message.reply_photo(
                         photo=f"downloads/{user_id}.jpg",
-                        caption=f"**{message.from_user.first_name}** is back online and was away for {seenago}\n\nReason: `{reasonafk}`",
+                        caption=f"**{message.from_user.first_name}** đã online trở lại và đã offline được {seenago}\n\nLý do: `{reasonafk}`",
                     )
         except Exception as e:
             return await message.reply_text(
-                f"**{message.from_user.first_name}** is back online",
+                f"**{message.from_user.first_name}** đã online.",
                 disable_web_page_preview=True,
             )
     if len(message.command) == 1 and not message.reply_to_message:
@@ -179,5 +169,5 @@ async def active_afk(_, message: Message):
 
     await add_afk(user_id, details)
     await message.reply_text(
-        f"{message.from_user.first_name} is now afk!"
+        f"{message.from_user.first_name} đã offline!"
     )
